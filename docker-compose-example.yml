@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+
+  web:
+#        image: josefjebavy/debian-apache-php8.0
+        image: josefjebavy/debian-apache-php8.0-nette
+#        image: josefjebavy/debian-apache-php8.0-symfony
+        container_name: docker-php8
+        working_dir: /var/www/html
+        environment:
+             - NETTE_DEBUG=1
+        volumes:
+             - .:/var/www/html
+        ports:
+             - 8081:80
+             - 8082:443
+
