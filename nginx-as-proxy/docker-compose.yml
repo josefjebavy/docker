@@ -1,0 +1,39 @@
+version: '3.6'
+
+services:
+
+  nginx:
+    build: ./docker/nginx
+    image: test-nginx
+    container_name: test_nginx
+    hostname: nginx
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - test-network
+
+  web:
+    build: ./docker/web
+
+    image: test-web
+    container_name: test_web
+    hostname: web
+    environment:       
+     - NETTE_DEBUG=1
+     - TZ=Europe/Prague
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    ports:
+      - 8080:80
+      - 4443:443
+
+    networks:
+      - test-network
+
+
+
+networks:
+  test-network:
+    driver: bridge
