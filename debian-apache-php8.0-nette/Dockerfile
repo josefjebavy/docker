@@ -3,6 +3,7 @@ MAINTAINER Bc. Josef Jebavý <email@josefjebavy.cz>
 
 ENV DEBIAN_FRONTEND noninteractive
 
+WORKDIR /var/www/html
 
 ADD site.conf /etc/apache2/sites-enabled/000-default.conf
 
