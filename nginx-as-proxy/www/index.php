@@ -1,4 +1,5 @@
 <?php
+/*
 declare(strict_types=1);
 echo "\n<br>HTTP_X_FORWARDED_PROTO:";
 var_dump($_SERVER['HTTP_X_FORWARDED_PROTO']);
@@ -18,7 +19,7 @@ echo"\n<br><br> SERVER:";
 var_dump($_SERVER);
 
 exit;
-
+*/
 require __DIR__ . '/../vendor/autoload.php';
 
 App\Bootstrap::boot()

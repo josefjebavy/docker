@@ -1,0 +1,25 @@
+parameters:
+
+http:
+	proxy:
+		- 172.20.0.2/24
+		- 192.168.80.3/24
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+di:
+	export:
+		parameters: no
+		tags: no
+
+
+services:
+	router: App\Router\RouterFactory::createRouter
