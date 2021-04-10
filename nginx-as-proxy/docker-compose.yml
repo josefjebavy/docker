@@ -4,8 +4,7 @@ services:
 
   nginx:
     build: ./docker/nginx
-    image: test-nginx
-    container_name: test_nginx
+
     hostname: nginx
     ports:
       - 80:80
@@ -14,10 +13,8 @@ services:
       - test-network
 
   web:
-    build: ./docker/web
+    image: josefjebavy/debian-apache-php7.4-nette
 
-    image: test-web
-    container_name: test_web
     hostname: web
     environment:       
      - NETTE_DEBUG=1
