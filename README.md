@@ -18,7 +18,7 @@ https://www.youtube.com/watch?v=-FCxcmyAP7c
 video návod Jak na docker hub:
 https://www.youtube.com/watch?v=9vsdsaC34i8
 
-článek [Jak začít správně používat Docker]([https://blog.josefjebavy.cz/unix/docker)
+článek [Jak začít správně používat Docker](https://blog.josefjebavy.cz/unix/docker)
 
 Online přednáška Nette za proxy:
 https://youtu.be/43zW-6tQwXM
