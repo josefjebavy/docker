@@ -1,0 +1,62 @@
+version: '3.6'
+
+services:
+
+  web:
+    image: josefjebavy/debian-apache-php7.4-nette
+    container_name: linuxserveradmin_web
+    environment:
+     - NETTE_DEBUG=1
+    working_dir: /var/www/html
+
+    volumes:
+      - .:/var/www/html
+      - ./docker/development/web/msmtprc:/etc/msmtprc
+    ports:
+      - 8081:80
+      - 8082:443
+    networks:
+      - linuxserveradmin-network        
+  database:
+    image: mariadb:10.3.18
+    container_name: linuxserveradmin_database
+
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=linuxserveradmin
+      - MYSQL_INITDB_SKIP_TZINFO=1 # toto vyresi prni pomaly start
+      - TZ=Europe/Prague
+
+    volumes:
+      - ./docker/development/database:/docker-entrypoint-initdb.d/
+
+    networks:
+      - linuxserveradmin-network
+    ports:
+      - 3307:3306
+
+
+  phpmyadmin:
+    depends_on:
+      - database
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - '3380:80'
+    environment:
+      PMA_HOST: database
+      MYSQL_ROOT_PASSWORD: passpass
+    networks:
+      - linuxserveradmin-network
+
+  composer:
+          image: composer:latest
+          volumes:
+                - .:/app
+          working_dir: /app
+          command: composer install --ignore-platform-reqs
+   
+networks:
+  linuxserveradmin-network:
+    driver: bridge
+
+
