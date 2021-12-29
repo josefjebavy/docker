@@ -2,7 +2,7 @@
 
 
 
-- dockerfile's with webserver apache, composer, php5.6, php7.3, php7.4, php8.0
+- dockerfile's with webserver apache, composer, php5.6, php7.3, php7.4, php8.0, php8.1
 with configuration  for Symfony and Nette.
 
 
