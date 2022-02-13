@@ -1,0 +1,9 @@
+version: '3.6'
+
+services:
+
+  web:
+      build:
+        context: ./
+        target: base
+

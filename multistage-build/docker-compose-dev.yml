@@ -1,0 +1,11 @@
+version: '3.6'
+
+services:
+
+  web:
+      build:
+      context: ./
+      target: dev
+      environment:
+             - NETTE_DEBUG=1
+
