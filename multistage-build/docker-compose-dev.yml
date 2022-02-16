@@ -4,8 +4,8 @@ services:
 
   web:
       build:
-      context: ./
-      target: dev
+        context: ./
+        target: devel
       environment:
              - NETTE_DEBUG=1
 
