@@ -1,0 +1,51 @@
+version: '3.6'
+
+services:
+
+  web:
+    image: josefjebavy/debian-apache-php8.1
+    environment:
+     - NETTE_DEBUG=1
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - ./docker/development/web/msmtprc:/etc/msmtprc
+    ports:
+      - 8081:80
+      - 8082:443
+    networks:
+      - example-network       
+
+  database:
+    image: mariadb:10.3.18
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=example
+      - MYSQL_INITDB_SKIP_TZINFO=1 # toto vyresi prni pomaly start
+      - TZ=Europe/Prague
+    volumes:
+      - ./docker/development/database:/docker-entrypoint-initdb.d/
+    networks:
+      - example-network
+    ports:
+      - 3307:3306
+
+
+  phpmyadmin:
+    depends_on:
+      - database
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: database
+
+    ports:
+      - '3380:80'
+    networks:
+      - example-network
+
+   
+networks:
+  example-network:
+    driver: bridge
+
+
