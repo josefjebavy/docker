@@ -24,6 +24,9 @@ RUN  apt-get -qq update && apt-get install -y \
 RUN apt-get update && \
   apt-get -yqq install msmtp
 
+ADD site.conf /etc/apache2/sites-enabled/000-default.conf
+  
+  
 #COPY msmtprc /etc/msmtprc
 COPY php.ini /etc/php/5.6/cli/php.ini
 COPY php.ini /etc/php/5.6/apache2/php.ini
