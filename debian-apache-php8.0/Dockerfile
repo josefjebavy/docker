@@ -28,6 +28,8 @@ RUN apt-get update && \
 COPY php.ini /etc/php/8.0/cli/php.ini
 COPY php.ini /etc/php/8.0/apache2/php.ini
 
+ADD site.conf /etc/apache2/sites-enabled/000-default.conf
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 
