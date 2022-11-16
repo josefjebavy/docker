@@ -1,4 +1,4 @@
-FROM debian-apache-php8.1
+FROM josefjebavy/debian-apache-php8.1
 MAINTAINER Bc. Josef Jebavý <email@josefjebavy.cz>
 
 ENV DEBIAN_FRONTEND noninteractive
