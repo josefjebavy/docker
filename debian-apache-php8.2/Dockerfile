@@ -39,6 +39,8 @@ RUN mkdir -p /var/www/project && a2enmod vhost_alias ssl  rewrite headers
 RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log && \
     ln -sf /proc/self/fd/1 /var/log/apache2/error.log
 
+WORKDIR /var/www/html
+
 
 EXPOSE 80 443
 
