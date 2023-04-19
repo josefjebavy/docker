@@ -17,7 +17,7 @@ RUN  apt-get -qq update && apt-get install -y \
    libapache2-mod-php8.2 php8.2-cgi \
    php8.2-cli        php8.2-gd      php8.2-common    php8.2-intl    \
    php8.2-mbstring     php8.2-mysql    php8.2-opcache      php8.2-readline       php8.2-xml    php8.2-xsl   \
-   php8.2-zip   php8.2-sqlite3 php8.2-curl  \
+   php8.2-zip   php8.2-sqlite3 php8.2-curl  php8.2-bcmath \
    apache2 
 
 
