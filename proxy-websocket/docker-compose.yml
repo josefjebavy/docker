@@ -1,0 +1,37 @@
+version: '3.6'
+
+services:
+
+  nodejs:
+    build: ./docker/nodejs
+    hostname: nodejs
+    ports:
+      - 8080:8080
+    networks:
+      - test-network
+
+
+
+  apache:
+    build: ./docker/apache
+    hostname: apache
+    ports:
+      - 81:80
+      - 4441:443
+    networks:
+      - test-network
+
+
+  nginx:
+    build: ./docker/nginx
+    hostname: nginx
+    ports:
+      - 82:80
+      - 4442:443
+    networks:
+      - test-network
+
+
+networks:
+  test-network:
+    driver: bridge

@@ -1,0 +1,53 @@
+<html>
+<head>
+</head>
+<body>
+<form id="input-form">
+    <label for="message">Enter Message:</label>
+    <input type="text" id="message" name="message"><br><br>
+    <input type="submit" value="Send">
+</form>
+<div id="messages"></div>
+<script>
+
+
+    // direct connet to webSocket in nodeJS, not encrypted
+    //webSocket = new WebSocket('ws://localhost:8080');
+
+
+    // ---- connet to webSocket in node JS via apache proxy
+    // not encrypted
+    webSocket = new WebSocket('ws://localhost:81/'); //ok na apache a http
+    //encrypted, i need to accept self-sing certificate(open URL https://localhost:4441 and accpet certificate)
+    //webSocket = new WebSocket('wss://localhost:4441/');
+
+
+    // ---- connet to webSocket in nodeJS via nginx proxy
+    // not encrypted
+    //webSocket = new WebSocket('ws://localhost:82/'); //ok na apache a http
+    //encrypted, i need to accept self-sing certificate(open URL https://localhost:4442 and accpet certificate)
+    //webSocket = new WebSocket('wss://localhost:4442/');
+
+
+
+
+    webSocket.onmessage = (event) => {
+        console.log(event)
+        document.getElementById('messages').innerHTML +=
+            'Message from server: ' + event.data + "<br>";
+    };
+    webSocket.addEventListener("open", () => {
+        console.log("We are connected");
+    });
+
+    function sendMessage(event) {
+        var inputMessage = document.getElementById('message')
+        webSocket.send(inputMessage.value)
+        inputMessage.value = ""
+        event.preventDefault();
+    }
+
+    document.getElementById('input-form').addEventListener('submit', sendMessage);
+</script>
+</body>
+</html> 
