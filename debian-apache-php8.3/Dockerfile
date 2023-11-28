@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bookworm
 MAINTAINER Bc. Josef Jebavý <email@josefjebavy.cz>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 RUN \
   wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg && \
-  echo "deb https://packages.sury.org/php/ buster main" > /etc/apt/sources.list.d/php.list && \
+  echo "deb https://packages.sury.org/php/ bookworm main" > /etc/apt/sources.list.d/php.list && \
 apt-get -qq update && apt-get -qqy upgrade
 
 RUN  apt-get -qq update && apt-get install -y \
