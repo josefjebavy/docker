@@ -14,10 +14,10 @@ RUN \
 apt-get -qq update && apt-get -qqy upgrade
 
 RUN  apt-get -qq update && apt-get install -y \
-   libapache2-mod-php8.2 php8.2-cgi \
-   php8.2-cli        php8.2-gd      php8.2-common    php8.2-intl    \
-   php8.2-mbstring     php8.2-mysql    php8.2-opcache      php8.2-readline       php8.2-xml    php8.2-xsl   \
-   php8.2-zip   php8.2-sqlite3 php8.2-curl  php8.2-bcmath \
+   libapache2-mod-php8.3 php8.3-cgi \
+   php8.3-cli        php8.3-gd      php8.3-common    php8.3-intl    \
+   php8.3-mbstring     php8.3-mysql    php8.3-opcache      php8.3-readline       php8.3-xml    php8.3-xsl   \
+   php8.3-zip   php8.3-sqlite3 php8.3-curl  php8.3-bcmath \
    apache2 
 
 
@@ -25,8 +25,8 @@ RUN apt-get update && \
   apt-get -yqq install msmtp
 
 #COPY msmtprc /etc/msmtprc
-COPY php.ini /etc/php/8.2/cli/php.ini
-COPY php.ini /etc/php/8.2/apache2/php.ini
+COPY php.ini /etc/php/8.3/cli/php.ini
+COPY php.ini /etc/php/8.3/apache2/php.ini
 
 ADD site.conf /etc/apache2/sites-enabled/000-default.conf
 
