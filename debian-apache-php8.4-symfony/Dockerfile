@@ -1,4 +1,4 @@
-FROM josefjebavy/debian-apache-php8.3
+FROM josefjebavy/debian-apache-php8.4
 MAINTAINER Bc. Josef Jebavý <email@josefjebavy.cz>
 
 
