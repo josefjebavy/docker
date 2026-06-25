@@ -17,7 +17,7 @@ RUN  apt-get -qq update && apt-get install -y \
    libapache2-mod-php8.5 php8.5-cgi \
    php8.5-cli        php8.5-gd      php8.5-common    php8.5-intl    \
    php8.5-mbstring     php8.5-mysql     php8.5-readline       php8.5-xml    php8.5-xsl   \
-   php8.5-zip   php8.5-sqlite3 php8.5-curl  php8.5-bcmath \
+   php8.5-zip   php8.5-sqlite3 php8.5-curl  php8.5-bcmath php8.5-redis  php8.5-soap \
    apache2 
 
 RUN apt-get update && \
