@@ -30,3 +30,12 @@ with configuration  for Symfony and Nette.
 
 [Online přednáška Nette za proxy](https://youtu.be/43zW-6tQwXM)
 
+
+
+## build push
+docker login -u josefjebavy
+
+cd dir
+CURRENTPATH=$(pwd) && NAME=$(basename "$CURRENTPATH") && docker build ./ -t josefjebavy/$NAME:latest && docker push josefjebavy/$NAME:latest
+
+
