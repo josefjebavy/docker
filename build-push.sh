@@ -1,5 +1,9 @@
 #!/bin/bash
-name=$(basename "$PWD")
+dir=$(basename "$PWD")
+name=josefjebavy/${dir}:latest
 echo $name
-docker buildx build --platform=linux/amd64,linux/arm64 . -t josefjebavy/${name}:latest
-docker push  josefjebavy/${name}:lates
+docker buildx build --platform=linux/amd64,linux/arm64  -t ${name} .
+docker push  ${name}
+
+# for load image  to docker
+docker buildx build --platform linux/amd64 -t ${name} --load . 
