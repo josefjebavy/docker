@@ -1,7 +1,9 @@
 FROM debian:trixie
-MAINTAINER Bc. Josef Jebavý <email@josefjebavy.cz>
+LABEL maintainer="Bc. Josef Jebavý <email@josefjebavy.cz>"
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive \
+    LC_ALL=C.UTF-8 \
+    LANG=C.UTF-8
 
 RUN apt-get update && \
   apt-get -yqq install apt-transport-https  ca-certificates \
@@ -44,5 +46,5 @@ WORKDIR /var/www/html
 
 EXPOSE 80 443
 
-CMD  /usr/sbin/apache2ctl -D FOREGROUND
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
