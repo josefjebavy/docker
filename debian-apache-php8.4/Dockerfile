@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM debian:trixie
 MAINTAINER Bc. Josef Jebavý <email@josefjebavy.cz>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -10,14 +10,14 @@ RUN apt-get update && \
 
 RUN \
   wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg && \
-  echo "deb https://packages.sury.org/php/ bookworm main" > /etc/apt/sources.list.d/php.list && \
+  echo "deb https://packages.sury.org/php/ trixie main" > /etc/apt/sources.list.d/php.list && \
 apt-get -qq update && apt-get -qqy upgrade
 
 RUN  apt-get -qq update && apt-get install -y \
    libapache2-mod-php8.4 php8.4-cgi \
    php8.4-cli        php8.4-gd      php8.4-common    php8.4-intl    \
    php8.4-mbstring     php8.4-mysql    php8.4-opcache      php8.4-readline       php8.4-xml    php8.4-xsl   \
-   php8.4-zip   php8.4-sqlite3 php8.4-curl  php8.4-bcmath \
+   php8.4-zip   php8.4-sqlite3 php8.4-curl  php8.4-bcmath php8.5-soap  \
    apache2 
 
 
